@@ -24,5 +24,7 @@ $ pip install streamlit
 5. Output all the dependencies in requirements.txt <br/>
 $ pip freeze > requirements.txt
 
+6. In order to use our application, please run this command <br/>
+$ pip install -r requirements.txt <br/>
 
-pip install -r requirements.txt
+**STAY TUNE**
