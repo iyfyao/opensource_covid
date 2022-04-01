@@ -5,15 +5,15 @@ This dashboard provides statistics and relevant informations about the covid cas
 
 ## SETUP INSTRUCTIONS
 
-1. Clone the repository
-$ git clone https://github.com/iyfyao/opensource_covid.git
+1. Clone the repository <br/> 
+$ git clone https://github.com/iyfyao/opensource_covid.git <br/>
 
-2. Install, rename and activate your virtual environmennt 
-$ pip install virtualenv AND  $ virtualenv foo AND $ source foo/Scripts/activate
+2. Install, rename and activate your virtual environmennt <br/>
+$ pip install virtualenv AND  $ virtualenv foo AND $ source foo/Scripts/activate <br/>
 
-3. Install requests package which automatically updates your virtual environment whenever a new packages is added
-If you dont do it, every time you add a new package you have to update it yourself 
-$ pip install requests
+3. Install requests package which automatically updates your virtual environment whenever a new packages is added <br/>
+If you dont do it, every time you add a new package you have to update it yourself <br/>
+$ pip install requests <br/>
 
 4. Install all the dependencies/packages <br/>
 $ pip install numpy <br/>
