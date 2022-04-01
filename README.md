@@ -15,13 +15,13 @@ $ pip install virtualenv AND  $ virtualenv foo AND $ source foo/Scripts/activate
 If you dont do it, every time you add a new package you have to update it yourself 
 $ pip install requests
 
-4. Install all the dependencies/packages 
+4. Install all the dependencies/packages <br/>
 $ pip install numpy <br/>
-$ pip install pandas
-$ pip install matplotlib\
-$ pip install streamlit\
+$ pip install pandas <br/>
+$ pip install matplotlib <br/>
+$ pip install streamlit
 
-5. Output all the dependencies in requirements.txt 
+5. Output all the dependencies in requirements.txt <br/>
 $ pip freeze > requirements.txt
 
 
