@@ -1,11 +1,9 @@
+import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import streamlit as st 
-@st.cache
-df = pd.read_csv('time_series_covid19_confirmed_global.csv')
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40]
+})
+st.title('COVID Dashboard')
 df
-#df.iloc[0,700:].plot()
-#fig = plt.figure()
-#st.pyplot(fig)
-st.balloons()
+st.write(df)
