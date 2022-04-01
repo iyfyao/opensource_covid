@@ -16,7 +16,7 @@ If you dont do it, every time you add a new package you have to update it yourse
 $ pip install requests
 
 4. Install all the dependencies/packages 
-$ pip install numpy<\br>
+$ pip install numpy <br/>
 $ pip install pandas
 $ pip install matplotlib\
 $ pip install streamlit\
