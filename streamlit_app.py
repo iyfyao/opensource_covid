@@ -7,4 +7,5 @@ df = pd.read_csv('time_series_covid19_confirmed_global.csv')
 df
 df.iloc[0,700:].plot()
 plt.show()
-# st.write(df)
+fig, ax = plt.subplots()
+st.pyplot(fig)
