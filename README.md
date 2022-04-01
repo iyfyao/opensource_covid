@@ -16,10 +16,13 @@ If you dont do it, every time you add a new package you have to update it yourse
 $ pip install requests
 
 4. Install all the dependencies/packages 
-$ pip install numpy 
-$ pip install pandas 
-$ pip install matplotlib
-$ pip install streamlit
+$ pip install numpy\ 
+$ pip install pandas\ 
+$ pip install matplotlib\
+$ pip install streamlit\
 
 5. Output all the dependencies in requirements.txt 
 $ pip freeze > requirements.txt
+
+
+pip install -r requirements.txt
