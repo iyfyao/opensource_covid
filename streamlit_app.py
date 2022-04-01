@@ -1,9 +1,9 @@
-import streamlit as st
 import pandas as pd
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40]
-})
+import matplotlib.pyplot as plt
+import numpy as np
 
-df
+df = pd.read_csv('data_sources/time_series_covid19_confirmed_global.csv')
+print(df.iloc[0,700:])
+df.iloc[0,700:].plot()
+plt.show()
 # st.write(df)
