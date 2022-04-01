@@ -4,7 +4,7 @@ import numpy as np
 import streamlit as st 
 
 df = pd.read_csv('time_series_covid19_confirmed_global.csv')
-df
+#df
 df.iloc[0,700:].plot()
 plt.show()
 fig, ax = plt.subplots()
