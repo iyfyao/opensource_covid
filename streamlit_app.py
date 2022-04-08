@@ -14,6 +14,15 @@ def load_data():
 df = load_data()
 
 
+selected_country = st.selectbox(
+     'Which country to display?',
+     df['location'].unique())
+
+
+life_death = st.selectbox(
+     'Cases oR Death?',
+     [df['total_cases'],df['total_deaths'])
+
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
 
@@ -29,9 +38,6 @@ plt.xlabel('Date')
 plt.ylabel('Total Confirmend Cases')
 
 fig1 = plt.figure()
-selected_country = st.selectbox(
-     'Which country to display?',
-     df['location'].unique())
 
 df_group_by = df.groupby(by=df['location']).sum().reset_index()
 df_group_by = df_group_by.loc[df_group_by['location'] == selected_country]
@@ -41,7 +47,7 @@ plt.xlabel('List of countries')
 plt .ylabel('Numer of deaths')
 plt.xticks(rotation=45, ha='right')
 
-df_death_per_cases = df_group_by[['total_deaths','total_cases','location']]
+df_death_per_cases = df[['total_deaths','total_cases','location']]
 df_death_per_cases['deaths_per_cases']=df_death_per_cases['total_deaths'] / df_death_per_cases['total_cases']
 fig2 = plt.figure(figsize=(35,20))
 df_death_per_cases = df_death_per_cases.loc[df_death_per_cases['location'] == selected_country]
