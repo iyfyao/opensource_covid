@@ -33,14 +33,15 @@ selected_country = st.selectbox(
 
 df_group_by = df.groupby(by=df['location']).sum().reset_index()
 df_group_by = df_group_by.loc[df_group_by['location'] == selected_country]
-plt.bar(df_group_by['location'], df_group_by['total_cases'])
+fig1 = plt.bar(df_group_by['location'], df_group_by['total_cases'])
 plt.title('Number of deaths for every country')
 plt.xlabel('List of countries')
 plt .ylabel('Numer of deaths')
 plt.xticks(rotation=45, ha='right')
-plt.show()
+
 
 st.pyplot(fig)
+barplot_chart = st.write(fig1)
 st.balloons()
 
 
