@@ -15,11 +15,13 @@ df = load_data()
 
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
-df_1 = df.groupby('date')['total_cases'].sum().reset_index() #Aggregate by date
+df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
 
 fig = plt.figure()
 
 plt.plot(df_1['date'],df_1['total_cases'])
+plt.plot(df_1['date'],df_1['total_deaths'])
+
 plt.xticks(rotation=45, ha='right')
 
 st.title('COVID Dashboard : Petar , Maikel , Yao')
