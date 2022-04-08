@@ -26,14 +26,14 @@ st.title('COVID Dashboard : Petar , Maikel , Yao')
 plt.xlabel('Date')
 plt.ylabel('Total Confirmend Cases')
 
-
+fig1 = plt.figure()
 selected_country = st.selectbox(
      'Which country to display?',
      df['location'].unique())
 
 df_group_by = df.groupby(by=df['location']).sum().reset_index()
 df_group_by = df_group_by.loc[df_group_by['location'] == selected_country]
-fig1 = plt.bar(df_group_by['location'], df_group_by['total_cases'])
+plt.bar(df_group_by['location'], df_group_by['total_cases'])
 plt.title('Number of deaths for every country')
 plt.xlabel('List of countries')
 plt .ylabel('Numer of deaths')
@@ -41,7 +41,8 @@ plt.xticks(rotation=45, ha='right')
 
 
 st.pyplot(fig)
-barplot_chart = st.write(fig1)
+st.pyplot(fig1)
+
 st.balloons()
 
 
