@@ -16,7 +16,7 @@ def load_data():
 df = load_data()
 
 
-selected_country = st.multiselect(
+selected_country = st.selectbox(
      'Which country to display?',
      df['location'].unique())
 
@@ -24,25 +24,19 @@ life_death = st.selectbox(
      'Cases Or Death?',
      ('Total Death', 'Total Cases'),key=2)
 
-fig_out = None
-Condition = df.loc[df['location']==selected_country,]
-#st.write(Condition) 
-
-fig_out = px.line(Condition, x='date', y='total_deaths' )
-if fig_out != None:
-    st.plotly_chart(fig_out)
-
+Condition_country = df.loc[df['location']==selected_country,] #filter by country
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 
 df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
+
 fig= None
-st.write(life_death)
+
 if life_death == 'Total Death' :
-    fig = px.line(df, x='date', y='total_deaths')
+    fig = px.line(Condition_country, x='date', y='total_deaths')
 
 elif life_death == 'Total Cases' :
-    fig = px.line(df, x='date', y='total_cases')
+    fig = px.line(Condition_country, x='date', y='total_cases')
 if fig != None:
     st.plotly_chart(fig)
 
