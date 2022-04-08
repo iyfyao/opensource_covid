@@ -19,9 +19,6 @@ selected_country = st.selectbox(
      df['location'].unique())
 
 
-life_death = st.selectbox(
-     'Cases oR Death?',
-     [df['total_cases'],df['total_deaths'])
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
