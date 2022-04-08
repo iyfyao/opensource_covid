@@ -20,6 +20,10 @@ selected_country = st.multiselect(
 
 
 
+life_death = st.selectbox(
+     'Cases Or Death?',
+     ('Total Death', 'Total Cases'))
+
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
 
