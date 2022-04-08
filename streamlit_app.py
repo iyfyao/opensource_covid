@@ -15,7 +15,7 @@ def load_data():
 df = load_data()
 
 
-selected_country = st.selectbox(
+selected_country = st.multiselect(
      'Which country to display?',
      df['location'].unique())
 
@@ -23,8 +23,23 @@ life_death = st.selectbox(
      'Cases Or Death?',
      ('Total Death', 'Total Cases'))
 
+life_death = st.selectbox(
+     'Cases Or Death?',
+     ('Total Death', 'Total Cases'))
+
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 
+df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
+
+
+if life_death == 'Total Death' :
+     fig = px.line(df, x=df_1['date'], y=df_1['total_deaths'])
+     fig.show()
+elif life_death == 'Total cases' :
+     fig = px.line(df, x=df_1['date'], y=df_1['total_cases'])
+     fig.show()
+   
+fig = plt.figure()
 df_1 = df.groupby('date').sum().reset_index() #Aggregate by country
 
 if life_death == 'Total Death' :
@@ -47,7 +62,7 @@ plt.xticks(rotation=45, ha='right')
 
 df_death_per_cases = df[['total_deaths','total_cases','location']]
 df_death_per_cases['deaths_per_cases']=df_death_per_cases['total_deaths'] / df_death_per_cases['total_cases']
-fig2 = plt.figure(figsize=(35,20))
+fig2 = plt.figure()
 df_death_per_cases = df_death_per_cases.loc[df_death_per_cases['location'] == selected_country]
 plt.bar(df_death_per_cases['location'], df_death_per_cases['deaths_per_cases'])
 plt.title('Number of deaths for every country normalized')
