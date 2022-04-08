@@ -46,7 +46,7 @@ plt.xticks(rotation=45, ha='right')
 
 df_death_per_cases = df[['total_deaths','total_cases','location']]
 df_death_per_cases['deaths_per_cases']=df_death_per_cases['total_deaths'] / df_death_per_cases['total_cases']
-fig2 = plt.figure(figsize=(35,20))
+fig2 = plt.figure()
 df_death_per_cases = df_death_per_cases.loc[df_death_per_cases['location'] == selected_country]
 plt.bar(df_death_per_cases['location'], df_death_per_cases['deaths_per_cases'])
 plt.title('Number of deaths for every country normalized')
