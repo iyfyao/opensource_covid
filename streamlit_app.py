@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 import plotly.express as px
+st.set_page_config(page_title='COVID-19 Dashboard', page_icon=':smiley')
 
 # pd.options.display.max_columns = None
 url_to_data = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv'
@@ -58,7 +59,7 @@ plt.xticks(rotation=45, ha='right')
 
 
 
-#st.plotly_chart(fig)
+st.plotly_chart(fig)
 st.pyplot(fig1)
 st.pyplot(fig2)
 
