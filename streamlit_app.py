@@ -17,6 +17,15 @@ plt.xticks(rotation=45, ha='right')
 st.title('COVID Dashboard : Petar , Maikel , Yao')
 plt.xlabel('Date')
 plt.ylabel('Total Confirmend Cases')
+
+df_group_by = df.groupby(by=df['location']).sum().reset_index()
+plt.bar(df_group_by['location'], df_group_by['total_cases'])
+plt.title('Number of deaths for every country')
+plt.xlabel('List of countries')
+plt .ylabel('Numer of deaths')
+plt.xticks(rotation=45, ha='right')
+plt.show()
+
 st.pyplot(fig)
 st.balloons()
 
