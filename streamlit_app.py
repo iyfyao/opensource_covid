@@ -23,6 +23,14 @@ selected_country = st.multiselect(
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
 
+
+if life_death == 'Total Death' :
+     fig = px.line(df, x=df_1['date'], y=df_1['total_deaths'])
+     fig.show()
+elif life_death == 'Total cases' :
+     fig = px.line(df, x=df_1['date'], y=df_1['total_cases'])
+     fig.show()
+   
 fig = plt.figure()
 
 plt.plot(df_1['date'],df_1['total_cases'])
@@ -56,7 +64,7 @@ plt.xticks(rotation=45, ha='right')
 
 
 
-st.pyplot(fig)
+st.plotly_chart(fig)
 st.pyplot(fig1)
 st.pyplot(fig2)
 
