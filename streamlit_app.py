@@ -24,6 +24,15 @@ life_death = st.selectbox(
      'Cases Or Death?',
      ('Total Death', 'Total Cases'),key=2)
 
+fig_out = None
+Condition = df.loc[df['location']==selected_country,]
+#st.write(Condition) 
+
+fig_out = px.line(Condition, x='date', y='total_deaths' )
+if fig_out != None:
+    st.plotly_chart(fig_out)
+
+
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 
 df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
