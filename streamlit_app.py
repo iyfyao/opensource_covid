@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 import plotly.express as px
-st.set_page_config(page_title='COVID-19 Dashboard', page_icon=':smiley'
 
 # pd.options.display.max_columns = None
 url_to_data = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv'
@@ -22,11 +21,7 @@ selected_country = st.multiselect(
 
 life_death = st.selectbox(
      'Cases Or Death?',
-     ('Total Death', 'Total Cases'))
-
-life_death = st.selectbox(
-     'Cases Or Death?',
-     ('Total Death', 'Total Cases'))
+     ('Total Death', 'Total Cases'),key=2)
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 
@@ -35,21 +30,11 @@ df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
 
 if life_death == 'Total Death' :
      fig = px.line(df, x=df_1['date'], y=df_1['total_deaths'])
-     fig.show()
+
 elif life_death == 'Total cases' :
      fig = px.line(df, x=df_1['date'], y=df_1['total_cases'])
-     fig.show()
-   
-fig = plt.figure()
+
 df_1 = df.groupby('date').sum().reset_index() #Aggregate by country
-
-if life_death == 'Total Death' :
-     fig = px.line(df, x=df_1['date'], y=df_1['total_deaths'])
-     fig.show()
-elif life_death == 'Total cases' :
-     fig = px.line(df, x=df_1['date'], y=df_1['total_cases'])
-     fig.show()
-
 
 fig1 = plt.figure()
 
@@ -73,7 +58,7 @@ plt.xticks(rotation=45, ha='right')
 
 
 
-st.plotly_chart(fig)
+#st.plotly_chart(fig)
 st.pyplot(fig1)
 st.pyplot(fig2)
 
