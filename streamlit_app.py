@@ -41,9 +41,20 @@ plt.xlabel('List of countries')
 plt .ylabel('Numer of deaths')
 plt.xticks(rotation=45, ha='right')
 
+df_death_per_cases = df_group_by[['total_deaths','total_cases','location']]
+df_death_per_cases['deaths_per_cases']=df_death_per_cases['total_deaths'] / df_death_per_cases['total_cases']
+fig2 = plt.figure(figsize=(35,20))
+plt.bar(df_death_per_cases['location'], df_death_per_cases['deaths_per_cases'])
+plt.title('Number of deaths for every country normalized')
+plt.xlabel('List of countries')
+plt .ylabel('Number of deaths per cases')
+plt.xticks(rotation=45, ha='right')
+
+
 
 st.pyplot(fig)
 st.pyplot(fig1)
+st.pyplot(fig2)
 
 st.balloons()
 
