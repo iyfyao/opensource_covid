@@ -15,7 +15,6 @@ def load_data():
 
 df = load_data()
 
-
 selected_country = st.multiselect(
      'Which country to display?',
      df['location'].unique())
