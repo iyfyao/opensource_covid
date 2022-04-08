@@ -16,11 +16,11 @@ def load_data():
 df = load_data()
 
 
-selected_country = st.selectbox(
+selected_country = st.sidebar.selectbox(
      'Which country to display?',
      df['location'].unique())
 
-life_death = st.selectbox(
+life_death = st.sidebar.selectbox(
      'Cases Or Death?',
      ('Total Death', 'Total Cases'),key=2)
 
