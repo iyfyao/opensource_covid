@@ -8,7 +8,7 @@ st.set_page_config(page_title='COVID-19 Dashboard', page_icon=':smiley')
 
 # pd.options.display.max_columns = None
 url_to_data = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv'
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_data():
    data = pd.read_csv(url_to_data)
    return data
