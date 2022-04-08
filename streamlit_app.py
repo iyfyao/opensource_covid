@@ -15,6 +15,7 @@ def load_data():
 
 df = load_data()
 
+st.title('Dashboard Project by MPY')
 
 selected_country = st.sidebar.selectbox(
      'Which country to display?',
