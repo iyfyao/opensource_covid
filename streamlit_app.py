@@ -26,20 +26,16 @@ life_death = st.selectbox(
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 
-df_1 = df.groupby('date').sum().reset_index() #Aggregate by date
-
-
+df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
+fig= None
+st.write(life_death)
 if life_death == 'Total Death' :
-     fig = px.line(df, x=df_1['date'], y=df_1['total_deaths'])
+    fig = px.line(df, x='date', y='total_deaths')
 
-elif life_death == 'Total cases' :
-     fig = px.line(df, x=df_1['date'], y=df_1['total_cases'])
-
-
-
-
-
-st.plotly_chart(fig)
+elif life_death == 'Total Cases' :
+    fig = px.line(df, x='date', y='total_cases')
+if fig != None:
+    st.plotly_chart(fig)
 
 st.balloons()
 
