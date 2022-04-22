@@ -24,7 +24,12 @@ selected_country = st.sidebar.multiselect(
 life_death = st.sidebar.selectbox(
      'Cases Or Death?',
      ('Total Death', 'Total Cases'),key=2)
+cumelative_smooth = st.sidebar.selectbox(
+     'Type of Data?',
+     ('Cumelative Cases', 'Cumelative Deaths' , 'New Cases Smoothed','New Death Smoothed'),key=3)
 
+for col in df.columns:
+    st.write(col)
 #Condition_country = df.loc[df['location']==selected_country,] #filter by country
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
