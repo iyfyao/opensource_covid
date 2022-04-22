@@ -1,3 +1,5 @@
+[![SWH](https://archive.softwareheritage.org/badge/swh:1:snp:f891106aad2f12f134bff7d230dc1a06cf62290b/)](https://archive.softwareheritage.org/swh:1:snp:f891106aad2f12f134bff7d230dc1a06cf62290b;origin=https://github.com/iyfyao/opensource_covid)
+
 # opensource_covid
 
 Build a COVID-19 dashboard.
