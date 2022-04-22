@@ -32,14 +32,16 @@ df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
 
 fig= None
+date_start = st.sidebar.date_input('Choose a start date', datetime.date(2011,1,1))
+date_end = st.sidebar.date_input('Choose an end date', datetime.date.today())
 
 if life_death == 'Total Death' :
     if len(selected_country) > 0:
-            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_deaths')
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_deaths',range_x = [date_start,date_end])
 
 if life_death == 'Total Cases':
     if len(selected_country) > 0:
-            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases')
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases',range_x = [date_start,date_end])
 
 if fig != None:
     st.plotly_chart(fig)
