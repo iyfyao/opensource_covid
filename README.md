@@ -5,6 +5,11 @@
 Build a COVID-19 dashboard.
 This dashboard provides statistics and relevant informations about the covid cases across the world 
 
+# Data Source 
+Please find here the link to the repository : https://github.com/owid/covid-19-data
+Please find here the source of the data : https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv
+Data on COVID-19 (coronavirus) cases, deaths, • All countries • Updated daily by the World in Data
+
 ## SETUP INSTRUCTIONS
 
 1. Clone the repository <br/> 
