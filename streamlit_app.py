@@ -33,7 +33,7 @@ df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
 df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
 
 fig= None
-date_start = st.sidebar.date_input('Choose a start date', datetime.date(2011,1,1))
+date_start = st.sidebar.date_input('Choose a start date', datetime.date(2020,1,1))
 date_end = st.sidebar.date_input('Choose an end date', datetime.date.today())
 
 if life_death == 'Total Death' :
