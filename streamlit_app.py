@@ -38,11 +38,11 @@ date_end = st.sidebar.date_input('Choose an end date', datetime.date.today())
 
 if life_death == 'Total Death' :
     if len(selected_country) > 0:
-            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='Total deaths Per million',range_x = [date_start,date_end])
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_deaths',range_x = [date_start,date_end])
 
 if life_death == 'Total Cases':
     if len(selected_country) > 0:
-            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='Total cases Per million ',range_x = [date_start,date_end])
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases',range_x = [date_start,date_end])
 
 if fig != None:
     st.plotly_chart(fig)
