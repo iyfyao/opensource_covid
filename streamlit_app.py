@@ -21,7 +21,6 @@ st.title('Dashboard Project by MPY')
 selected_country = st.sidebar.multiselect(
      'Which country to display?',
      df['location'].unique())
-st.write(type(selected_country))
 life_death = st.sidebar.selectbox(
      'Cases Or Death?',
      ('Total Death', 'Total Cases'),key=2)
