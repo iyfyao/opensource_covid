@@ -32,4 +32,11 @@ If you dont do it, every time you add a new package you have to update it yourse
 Please find below the link to the streamlit cloud <br/>
 https://share.streamlit.io/iyfyao/opensource_covid/main/streamlit_app.py <br/>
 
+# Run the dashboard Locally
+Please find below the instructions to run the dashboard locally : <br/>
+1. Please move to the directory of your project and type the following command, 
+Note : The project is always at the root of your C:\
+Example : cd C:\Users\[username]\git\opensource_covid>streamlit run streamlit_app.py
+
+
 **STAY TUNE**
