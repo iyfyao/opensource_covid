@@ -11,6 +11,7 @@ Please find here the source of the data : <br/>
 https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv <br/>
 Data on COVID-19 (coronavirus) cases, deaths, • All countries • Updated daily by the World in Data <br/>
 
+
 ## SETUP INSTRUCTIONS
 
 1. Clone the repository <br/> 
@@ -26,5 +27,9 @@ If you dont do it, every time you add a new package you have to update it yourse
 
 4. In order to use our application, please run this command <br/>
 ``` python -m pip install -r requirements.txt ``` <br/>
+
+# Streamlit Cloud 
+Please find below the link to the streamlit cloud <br/>
+https://share.streamlit.io/iyfyao/opensource_covid/main/streamlit_app.py <br/>
 
 **STAY TUNE**
