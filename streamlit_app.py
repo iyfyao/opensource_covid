@@ -33,7 +33,7 @@ df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
 
 fig= None
 date_start = st.sidebar.date_input('Choose a start date', datetime.date(2020,1,1))
-date_end = st.sidebar.date_input('Choose an end date', datetime.date.today())
+date_end = st.sidebar.date_input('Choose an end date', datetime.date.today()-datetime.timedelta(days=1))
 
 if life_death == 'Total Death' :
     if len(selected_country) > 0:
