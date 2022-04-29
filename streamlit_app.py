@@ -21,18 +21,11 @@ st.title('Dashboard Project by MPY')
 selected_country = st.sidebar.multiselect(
      'Which country to display?',
      df['location'].unique(),  default=["France"])
-<<<<<<< HEAD
 #life_death = st.sidebar.selectbox('Cases Or Death?',('Total Death', 'Total Cases'),key=2)
 cumelative_smooth = st.sidebar.selectbox(
      'Type of Data?',
      ('Cumelative Cases', 'Cumelative Deaths' , 'New Cases Smoothed','New Death Smoothed'),key=3)
 
-=======
-
-cumelative_smooth = st.sidebar.selectbox(
-     'Type of Data?',
-     ('Cumelative Cases', 'Cumelative Deaths' , 'New Cases Smoothed','New Death Smoothed'),key=3)
->>>>>>> 60d7427a751b04d4feae9b0f5b8353cad2bee6b5
 
 #Condition_country = df.loc[df['location']==selected_country,] #filter by country
 
