@@ -21,15 +21,12 @@ st.title('Dashboard Project by MPY')
 selected_country = st.sidebar.multiselect(
      'Which country to display?',
      df['location'].unique(),  default=["France"])
-life_death = st.sidebar.selectbox(
-     'Cases Or Death?',
-     ('Total Death', 'Total Cases'),key=2)
+#life_death = st.sidebar.selectbox('Cases Or Death?',('Total Death', 'Total Cases'),key=2)
 cumelative_smooth = st.sidebar.selectbox(
      'Type of Data?',
      ('Cumelative Cases', 'Cumelative Deaths' , 'New Cases Smoothed','New Death Smoothed'),key=3)
 
-for col in df.columns:
-    st.write(col)
+
 #Condition_country = df.loc[df['location']==selected_country,] #filter by country
 
 df['MA'] = df['total_cases'].rolling(window=7).mean() #7day Moving Average
@@ -40,13 +37,16 @@ fig= None
 date_start = st.sidebar.date_input('Choose a start date', datetime.date(2020,1,1))
 date_end = st.sidebar.date_input('Choose an end date', datetime.date.today())
 
-if life_death == 'Total Death' :
-    if len(selected_country) > 0:
+if len(selected_country) > 0:
+        if cumelative_smooth == 'Cumelative Deaths':
             fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_deaths',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+        if cumelative_smooth == 'New Death Smoothed':
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='new_deaths_smoothed_per_million',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
 
-if life_death == 'Total Cases':
-    if len(selected_country) > 0:
+        if cumelative_smooth == 'Cumelative Cases':
             fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+        if cumelative_smooth == 'New Cases Smoothed':
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='new_cases_smoothed_per_million',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
 
 if fig != None:
     st.plotly_chart(fig)
