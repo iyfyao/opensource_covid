@@ -41,8 +41,14 @@ date_end = st.sidebar.date_input('Choose an end date', datetime.date.today()-dat
 
 if life_death == 'Total Death' :
     if len(selected_country) > 0:
+        if cumelative_smooth == 'Cumelative Deaths':
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_deaths',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+        if cumelative_smooth == 'New Death Smoothed':
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='new_deaths_smoothed_per_million',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+        else:
             fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_deaths',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
 
+            
 if life_death == 'Total Cases':
     if len(selected_country) > 0:
             fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
