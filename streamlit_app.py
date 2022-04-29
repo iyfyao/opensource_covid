@@ -21,11 +21,18 @@ st.title('Dashboard Project by MPY')
 selected_country = st.sidebar.multiselect(
      'Which country to display?',
      df['location'].unique(),  default=["France"])
+<<<<<<< HEAD
 #life_death = st.sidebar.selectbox('Cases Or Death?',('Total Death', 'Total Cases'),key=2)
 cumelative_smooth = st.sidebar.selectbox(
      'Type of Data?',
      ('Cumelative Cases', 'Cumelative Deaths' , 'New Cases Smoothed','New Death Smoothed'),key=3)
 
+=======
+
+cumelative_smooth = st.sidebar.selectbox(
+     'Type of Data?',
+     ('Cumelative Cases', 'Cumelative Deaths' , 'New Cases Smoothed','New Death Smoothed'),key=3)
+>>>>>>> 60d7427a751b04d4feae9b0f5b8353cad2bee6b5
 
 #Condition_country = df.loc[df['location']==selected_country,] #filter by country
 
@@ -35,7 +42,7 @@ df_1 = df.groupby('iso_code').sum().reset_index() #Aggregate by country
 
 fig= None
 date_start = st.sidebar.date_input('Choose a start date', datetime.date(2020,1,1))
-date_end = st.sidebar.date_input('Choose an end date', datetime.date.today())
+date_end = st.sidebar.date_input('Choose an end date', datetime.date.today()-datetime.timedelta(days=1))
 
 if len(selected_country) > 0:
         if cumelative_smooth == 'Cumelative Deaths':
