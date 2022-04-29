@@ -51,7 +51,13 @@ if life_death == 'Total Death' :
             
 if life_death == 'Total Cases':
     if len(selected_country) > 0:
+        if cumelative_smooth == 'Cumelative Cases':
             fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+        if cumelative_smooth == 'New Cases Smoothed':
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='new_cases_smoothed_per_million',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+        else:
+            fig = px.line(df[df['location'].isin(selected_country)], x='date', y='total_cases',range_x = [date_start,date_end], color = 'location',labels = {"total_deaths" : "Total death Per Million",  "location" : "Country name"}, title = "Total number of cases Line plot")
+
 
 if fig != None:
     st.plotly_chart(fig)
